@@ -10,6 +10,9 @@
     <mat-form-field appearance="fill">
       <input matInput [(ngModel)]="usuarioDeManutencao.cpf" placeholder="Digite o CPF">
     </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="usuarioDeManutencao.telefone" placeholder="Digite o Telefone">
+    </mat-form-field>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="manter()">{{nomeBotaoManutencao}}</button>

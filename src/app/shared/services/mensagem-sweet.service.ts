@@ -5,9 +5,11 @@ import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
-export class MensagemSweetService implements IMensagem {
+export class MensagemSweetService extends IMensagem {
 
-  constructor() { }
+  constructor() { 
+    super()
+  }
   alert(mensagem: string): void {
     throw new Error('Method not implemented.');
   }

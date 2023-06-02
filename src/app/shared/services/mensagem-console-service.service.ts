@@ -4,12 +4,12 @@ import { IMensagem } from '../modelo/IMensagem';
 @Injectable({
   providedIn: 'root'
 })
-export class MensagemConsoleServiceService implements IMensagem {
+export class MensagemConsoleServiceService extends IMensagem {
 
-  constructor() { }
-  alert(mensagem: string): void {
-    alert(mensagem);
+  constructor() { 
+    super()
   }
+  
   info(mensagem: string): void {
     console.log(mensagem);
   }

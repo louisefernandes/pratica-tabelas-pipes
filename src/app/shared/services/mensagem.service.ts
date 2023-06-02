@@ -5,9 +5,10 @@ import {IMensagem} from '../modelo/IMensagem';
 @Injectable({
   providedIn: 'root'
 })
-export class MensagemService implements IMensagem {
+export class MensagemService extends IMensagem {
 
   constructor(private snackBar: MatSnackBar) {
+    super()
   }
   alert(mensagem: string): void {
     throw new Error('Method not implemented.');

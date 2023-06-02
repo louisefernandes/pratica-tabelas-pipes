@@ -3,6 +3,7 @@ import {Usuario} from '../../shared/modelo/usuario';
 import {MatTableDataSource} from '@angular/material/table';
 import {UsuarioService} from '../../shared/services/usuario.service';
 import {Router} from '@angular/router';
+import { IMensagem } from 'src/app/shared/modelo/IMensagem';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class ListagemUsuariosTabelaComponent implements OnInit {
   dataSource: MatTableDataSource<Usuario>;
   mostrarColunas = ['nome', 'cpf', 'idade', 'telefone', 'acoes'];
 
-  constructor(private usuarioService: UsuarioService, private roteador: Router) {
+  constructor(private usuarioService: UsuarioService, private roteador: Router, private mensagemService: IMensagem) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -32,6 +33,7 @@ export class ListagemUsuariosTabelaComponent implements OnInit {
     console.log('apagando');
     this.usuarioService.apagar(id).subscribe(
       apagado => {
+        this.mensagemService.alerta("Usuário excluído");
         const indx = this.dataSource.data.findIndex(usuario => usuario.id === id);
         if (indx > -1) {
           this.dataSource.data.splice(indx, 1);
@@ -43,6 +45,6 @@ export class ListagemUsuariosTabelaComponent implements OnInit {
 
   editar(usuario: Usuario): void {
     console.log('editando');
-    this.roteador.navigate(['cadastrousuario', usuario.id]);
+    this.roteador.navigate(['editusuario/', usuario.id]);
   }
 }
